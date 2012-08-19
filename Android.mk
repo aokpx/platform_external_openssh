@@ -40,6 +40,7 @@ LOCAL_SHARED_LIBRARIES += libssl libcrypto libdl libz
 LOCAL_MODULE := libssh
 
 LOCAL_CFLAGS+=-O3
+LOCAL_CFLAGS += -fno-strict-aliasing
 
 include $(BUILD_SHARED_LIBRARY)
 
@@ -55,6 +56,8 @@ LOCAL_SRC_FILES := \
     roaming_common.c roaming_client.c
 
 LOCAL_MODULE := ssh
+
+LOCAL_CFLAGS += -fno-strict-aliasing
 
 LOCAL_C_INCLUDES := external/openssl/include
 PRIVATE_C_INCLUDES := external/openssl/openbsd-compat
