@@ -109,7 +109,7 @@ include $(CLEAR_VARS)
 LOCAL_MODULE_TAGS := optional
 
 LOCAL_SRC_FILES := \
-    sshd.c auth-rhosts.c auth-rsa.c auth-rh-rsa.c \
+	sshd.c auth-rhosts.c auth-rsa.c auth-rh-rsa.c \
 	audit.c audit-bsm.c audit-linux.c platform.c \
 	sshpty.c sshlogin.c servconf.c serverloop.c \
 	auth.c auth1.c auth2.c auth-options.c session.c \
@@ -122,7 +122,8 @@ LOCAL_SRC_FILES := \
 	loginrec.c auth-pam.c auth-shadow.c auth-sia.c md5crypt.c \
 	sftp-server.c sftp-common.c \
 	roaming_common.c roaming_serv.c \
-	sandbox-null.c sandbox-rlimit.c sandbox-systrace.c sandbox-darwin.o
+	sandbox-null.c sandbox-rlimit.c sandbox-systrace.c \
+	sandbox-seccomp-filter.c
 
 # auth-passwd.c
 
@@ -131,7 +132,7 @@ LOCAL_MODULE := sshd
 LOCAL_C_INCLUDES := external/openssl/include external/zlib
 PRIVATE_C_INCLUDES := external/openssl/openbsd-compat
 
-LOCAL_SHARED_LIBRARIES += libssh libssl libcrypto libdl libz libcutils
+LOCAL_SHARED_LIBRARIES += libssh libssl libcrypto libdl libz
 
 include $(BUILD_EXECUTABLE)
 
